@@ -17,7 +17,7 @@ void Show(void);
 void Move(void);
 int Check();
 void Show_answer();
-
+void hanoi(int n,char A, char B, char C);
 int Convert(char from, char to);
 
 int N;
@@ -287,7 +287,19 @@ int Check()
 }
 void Show_answer()
 {
-	/*
-	範例程式跑給他看好ㄇ?
-	*/
+	int n=N;
+    char A,B,C;
+    hanoi(n,A,B,C);
 }
+void hanoi(int n,char A, char B, char C)
+{
+    if(n==1) 
+        cout << "Move sheet from " << A << " to " << C << endl; 
+    else
+    {
+        hanoi(n-1,A,C,B);
+        hanoi(1,A,B,C);  
+        hanoi(n-1,B,A,C);  
+    }
+}
+
